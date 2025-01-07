@@ -29,6 +29,7 @@
 	<properties>
 		<java.version>17</java.version>
 		<telegrambot.starter.version>6.5.0</telegrambot.starter.version>
+		<guava.version>19.0</guava.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -47,6 +48,13 @@
 			<artifactId>telegrambots-spring-boot-starter</artifactId>
 			<version>${telegrambot.starter.version}</version>
 		</dependency>
+		<!-- https://mvnrepository.com/artifact/com.google.guava/guava -->
+		<dependency>
+			<groupId>com.google.guava</groupId>
+			<artifactId>guava</artifactId>
+			<version>${guava.version}</version>
+		</dependency>
+
 	</dependencies>
 
 	<build>
