@@ -1,8 +1,36 @@
 services:
-  jrtb:
+  jrtb-bot:
+    depends_on:
+      - jrtb-db
     build:
       context: .
       dockerfile: Dockerfile
     env_file:
       - .env
+#    environment:
+#      BOT_NAME: ${BOT_NAME}
+#      BOT_TOKEN: ${BOT_TOKEN}
+#      BOT_DB_USERNAME: ${BOT_DB_USERNAME}
+#      BOT_DB_PASSWORD: ${BOT_DB_PASSWORD}
     restart: always
+  jrtb-db-dev:
+    image: mysql:latest
+    restart: always
+    env_file:
+      - .env
+    environment:
+      MYSQL_DATABASE: 'jrtb_db'
+      MYSQL_ROOT_PASSWORD: 'root'
+#
+#      environment:
+#        MYSQL_USER: ${BOT_DB_USERNAME}
+#        MYSQL_PASSWORD: ${BOT_DB_PASSWORD}
+#        MYSQL_DATABASE: 'jrtb_db'
+#        MYSQL_ROOT_PASSWORD: 'root'
+    ports:
+    # <Port exposed> : < MySQL Port running inside container>
+      - '3307:3306'
+    expose:
+    # Opens port 3306 on the container
+      - '3307'
+
