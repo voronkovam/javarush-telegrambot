@@ -5,6 +5,7 @@ import org.telegram.telegrambots.meta.api.objects.Update;
 
 import static github.com.voronkovam.jrtb.command.CommandName.HELP;
 import static github.com.voronkovam.jrtb.command.CommandName.START;
+import static github.com.voronkovam.jrtb.command.CommandName.STAT;
 import static github.com.voronkovam.jrtb.command.CommandName.STOP;
 
 
@@ -20,8 +21,9 @@ public class HelpCommand implements Command {
                     + "<b>Начать\\закончить работу с ботом</b>\n"
                     + "%s - начать работу со мной\n"
                     + "%s - приостановить работу со мной\n\n"
-                    + "%s - получить помощь в работе со мной\n",
-            START.getCommandName(), STOP.getCommandName(), HELP.getCommandName());
+                    + "%s - получить помощь в работе со мной\n"
+                    + "%s - получить мою статистику использования\n",
+            START.getCommandName(), STOP.getCommandName(), HELP.getCommandName(), STAT.getCommandName());
 
     public HelpCommand(SendBotMessageService sendBotMessageService) {
         this.sendBotMessageService = sendBotMessageService;
