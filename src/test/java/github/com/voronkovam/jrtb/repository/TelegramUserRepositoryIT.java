@@ -1,5 +1,6 @@
 package github.com.voronkovam.jrtb.repository;
 
+import github.com.voronkovam.jrtb.repository.entity.GroupSub;
 import github.com.voronkovam.jrtb.repository.entity.TelegramUser;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -52,4 +53,20 @@ public class TelegramUserRepositoryIT {
         Assertions.assertTrue(saved.isPresent());
         Assertions.assertEquals(telegramUser, saved.get());
     }
+    @Sql(scripts = {"/sql/clearDbs.sql", "/sql/fiveGroupSubsForUser.sql"})
+    @Test
+    public void shouldProperlyGetAllGroupSubsForUser() {
+        //when
+        Optional<TelegramUser> userFromDB = telegramUserRepository.findById("1");
+
+        //then
+        Assertions.assertTrue(userFromDB.isPresent());
+        List<GroupSub> groupSubs = userFromDB.get().getGroupSub();
+        for (int i = 0; i < groupSubs.size(); i++) {
+            Assertions.assertEquals(String.format("g%s", (i + 1)), groupSubs.get(i).getTitle());
+            Assertions.assertEquals(i + 1, groupSubs.get(i).getId());
+            Assertions.assertEquals(i + 1, groupSubs.get(i).getLastArticleId());
+        }
+    }
+
 }
