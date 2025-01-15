@@ -31,7 +31,7 @@
 		<telegrambot.starter.version>6.5.0</telegrambot.starter.version>
 		<guava.version>19.0</guava.version>
 		<unirest.version>3.11.01</unirest.version>
-		<apache.commons.version>3.11</apache.commons.version>
+		<apache.commons.version>3.17.0</apache.commons.version>
 	</properties>
 	<dependencies>
 		<dependency>
