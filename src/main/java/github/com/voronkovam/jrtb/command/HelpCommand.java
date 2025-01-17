@@ -4,6 +4,7 @@ import github.com.voronkovam.jrtb.service.SendBotMessageService;
 import org.telegram.telegrambots.meta.api.objects.Update;
 
 import static github.com.voronkovam.jrtb.command.CommandName.ADD_GROUP_SUB;
+import static github.com.voronkovam.jrtb.command.CommandName.DELETE_GROUP_SUB;
 import static github.com.voronkovam.jrtb.command.CommandName.HELP;
 import static github.com.voronkovam.jrtb.command.CommandName.LIST_GROUP_SUB;
 import static github.com.voronkovam.jrtb.command.CommandName.START;
@@ -26,12 +27,13 @@ public class HelpCommand implements Command {
 
                     + "Работа с подписками на группы:\n"
                     + "%s - подписаться на группу статей\n"
+                    + "%s - отписаться от группы статей\n"
                     + "%s - получить список групп, на которые подписан\n\n"
 
                     + "%s - получить помощь в работе со мной\n"
-                    + "%s - получить мою статистику использования\n",
+            +"%s - получить мою статистику использования\n",
             START.getCommandName(), STOP.getCommandName(), ADD_GROUP_SUB.getCommandName(),
-            LIST_GROUP_SUB.getCommandName(), HELP.getCommandName(), STAT.getCommandName());
+            DELETE_GROUP_SUB.getCommandName(), LIST_GROUP_SUB.getCommandName(), HELP.getCommandName(), STAT.getCommandName());
 
     public HelpCommand(SendBotMessageService sendBotMessageService) {
         this.sendBotMessageService = sendBotMessageService;

@@ -8,6 +8,7 @@ import github.com.voronkovam.jrtb.service.TelegramUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import static github.com.voronkovam.jrtb.command.CommandName.ADD_GROUP_SUB;
+import static github.com.voronkovam.jrtb.command.CommandName.DELETE_GROUP_SUB;
 import static github.com.voronkovam.jrtb.command.CommandName.HELP;
 import static github.com.voronkovam.jrtb.command.CommandName.LIST_GROUP_SUB;
 import static github.com.voronkovam.jrtb.command.CommandName.NO;
@@ -33,7 +34,8 @@ public class CommandContainer {
                 .put(STAT.getCommandName(), new StatCommand(sendBotMessageService, telegramUserService))
                 .put(ADD_GROUP_SUB.getCommandName(), new AddGroupSubCommand(sendBotMessageService, javaRushGroupClient, groupSubService))
                 .put(LIST_GROUP_SUB.getCommandName(), new ListGroupSubCommand(sendBotMessageService, telegramUserService))
-
+                .put(DELETE_GROUP_SUB.getCommandName(),
+                        new DeleteGroupSubCommand(sendBotMessageService, groupSubService, telegramUserService))
                 .build();
 
         unknownCommand = new UnknownCommand(sendBotMessageService);
