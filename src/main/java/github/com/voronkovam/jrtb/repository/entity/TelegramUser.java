@@ -54,12 +54,12 @@ public class TelegramUser {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof TelegramUser that)) return false;
-        return isActive() == that.isActive() && Objects.equals(getChatId(), that.getChatId()) && Objects.equals(getGroupSub(), that.getGroupSub());
+        return isActive() == that.isActive() && Objects.equals(getChatId(), that.getChatId());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getChatId(), isActive(), getGroupSub());
+        return Objects.hash(getChatId(), isActive());
     }
 
     @Override

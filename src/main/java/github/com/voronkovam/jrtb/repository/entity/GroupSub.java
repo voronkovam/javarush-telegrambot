@@ -80,21 +80,11 @@ public class GroupSub {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof GroupSub groupSub)) return false;
-        return Objects.equals(getId(), groupSub.getId()) && Objects.equals(getTitle(), groupSub.getTitle()) && Objects.equals(getLastArticleId(), groupSub.getLastArticleId()) && Objects.equals(getUsers(), groupSub.getUsers());
+        return Objects.equals(getId(), groupSub.getId()) && Objects.equals(getTitle(), groupSub.getTitle()) && Objects.equals(getLastArticleId(), groupSub.getLastArticleId());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getId(), getTitle(), getLastArticleId(), getUsers());
-    }
-
-    @Override
-    public String toString() {
-        return "GroupSub{" +
-                "id=" + id +
-                ", title='" + title + '\'' +
-                ", lastArticleId=" + lastArticleId +
-                ", users=" + users +
-                '}';
+        return Objects.hash(getId(), getTitle(), getLastArticleId());
     }
 }
