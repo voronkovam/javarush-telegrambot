@@ -3,6 +3,7 @@ package github.com.voronkovam.jrtb.service;
 import github.com.voronkovam.jrtb.javarushclient.dto.GroupDiscussionInfo;
 import github.com.voronkovam.jrtb.repository.entity.GroupSub;
 
+import java.util.List;
 import java.util.Optional;
 
 /**
@@ -15,4 +16,5 @@ public interface GroupSubService {
     Optional<GroupSub> findById(Integer valueOf);
 
     GroupSub save(GroupSub groupSub);
+    List<GroupSub> findAll();
 }
