@@ -40,4 +40,6 @@ import java.util.List;
          * @return {@link GroupDiscussionInfo} object.
          */
         GroupDiscussionInfo getGroupById(Integer id);
+        Integer findLastArticleId(Integer groupSub);
+
     }
